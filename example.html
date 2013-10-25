@@ -1,0 +1,24 @@
+    <html ng-app="myApp">
+    <head lang="en">
+    <meta charset="utf-8">
+    <title>Getting Started With ngTable Example</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="ng-table.js"></script>
+    <link rel="stylesheet" type="text/css" href="ng-table.css" />
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body ng-controller="MyCtrl">
+    <table ng-table class="table">
+    <tr ng-repeat="user in users">
+    <td data-title="'Name'">
+    {{user.name}}
+    </td>
+    <td data-title="'Age'">
+    {{user.age}}
+    </td>
+    </tr>
+    </table>
+    </body>
+    </html>

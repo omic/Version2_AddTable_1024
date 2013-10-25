@@ -6,13 +6,14 @@
 <!-- with a "Standards Mode" doctype is supported, -->
 <!-- but may lead to some differences in layout.   -->
 
-<html>
+<html ng-app="myApp">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>FAWN Data Tracker</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script type="text/javascript" src="ng-table.js"></script>
     <link rel="stylesheet" type="text/css" href="ng-table.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     
@@ -57,14 +58,36 @@
 	 </table>
  </div>
  <div id="container" style="height: 600px"></div>
- 
+ <div id="table-container" ng-controller="TableCtrl">
+	 <table ng-table class="table">
+		 <tr ng-repeat="user in users">
+			 <td data-title="'Name'">
+				 {{user.name}}
+			 </td>
+			 <td data-title="'Age'">
+				 {{user.age}}
+			 </td>
+		 </tr>
+	 </table>
+ </div>
+ </div>
  <script>
 
  var newData = new dataSeries();
  var newDataController = new dataControl();
  var newChartController = new highchartControl();
  
+ var app = angular.module('myApp',['ngTable']);
+ app.controller('TableCtrl', function($scope) {
+	 $scope.users = [{name: "Moroni", age: 50},
+	 {name: "Tiancum", age: 43},
+	 {name: "Jacob", age: 27},
+	 {name: "Nephi", age: 29},
+	 {name: "Enos", age: 34}]
+ });
+ 
  startPage();
+ 
  
  </script>
  
