@@ -6,16 +6,17 @@
 <!-- with a "Standards Mode" doctype is supported, -->
 <!-- but may lead to some differences in layout.   -->
 
-<html ng-app="myApp">
+<html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>FAWN Data Tracker</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="haycutting.css" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <script type="text/javascript" src="ng-table.js"></script>
-    <link rel="stylesheet" type="text/css" href="ng-table.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <! <link rel="stylesheet" type="text/css" href="ng-table.css" /> -->
+
     
     <script type="text/javascript" language="javascript" src="HayCuttingTool.js"></script>
   </head>
@@ -57,27 +58,19 @@
 		 </tr>
 	 </table>
  </div>
- <div id="container" style="height: 600px"></div>
- <div id="table-container" ng-controller="TableCtrl">
-	 <table ng-table class="table">
-		 <tr ng-repeat="station in stations">
-			 <td data-title="'Time'">
-				 {{station.time}}
-			 </td>
-			 <td data-title="'Temperature'">
-				 {{station.temperature}}
-			 </td>
-			 <td data-title="'Humidity'">
-				 {{station.humidity}}
-			 </td>
-			 <td data-title="'Solar Radiation'">
-				 {{station.solarradiation}}
-			 </td>
-			 <td data-title="'Rainfall'">
-				 {{station.rainfall}}
-			 </td>
-		 </tr>
+ <div id="container" style="height: 500px"></div>
+ <div id="table-container">
+	 <!-- ng-controller="TableCtrl" -->
+	 <h4>Past Data</h4>
+         <table class="paginated-table">
+		 <th class="theader">Time</th> 
+		 <th class="theader">Temperature</th>
+		 <th class="theader">Humidity</th>
+		 <th class="theader">Rainfall</th>
+		 <th class="theader">SolarRadiation</th>
 	 </table>
+	 <span class="prev">Previous</span>
+	 <span class="next">Next</span>
  </div>
  </div>
  <script>
